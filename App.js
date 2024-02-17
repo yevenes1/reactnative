@@ -1,20 +1,74 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Button,
+  FlatList,
+  Modal,
+} from "react-native";
+import uuid from "react-native-uuid";
+import ModalDelete from "./src/components/ModalDelete";
+import AddProduct from "./src/components/AddProducts";
+import ListProduct from "./src/components/ListProduct";
 
-export default function App() {
+const App = () => {
+  const [newTitleProduct, setNewTitleProduct] = useState("");
+  const [newPriceProduct, setNewPriceProducts] = useState("");
+  const [products, setProducts] = useState([]);
+  const [productSelected, setProductSelected] = useState({});
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handlerAddProduct = () => {
+    const newProduct = {
+      id: uuid.v4(),
+      title: newTitleProduct,
+      price: newPriceProduct,
+    };
+
+    setProducts((current) => [...current, newProduct]);
+    setNewTitleProduct("");
+    setNewPriceProducts("");
+  };
+
+  const handlerModal = (item) => {
+    setProductSelected(item);
+    setModalVisible(true);
+  };
+  const handlerDeleteProduct = () => {
+    setProducts((current) =>
+      current.filter((product) => product.id !== productSelected.id)
+    );
+    setModalVisible(false);
+  };
   return (
     <View style={styles.container}>
-      <Text>Hola CoderHouse!</Text>
-      <StatusBar style="auto" />
+      <AddProduct
+        valueTitle={newTitleProduct}
+        valuePrice={newPriceProduct}
+        onChangeTitle={setNewTitleProduct}
+        onChangePrice={setNewPriceProducts}
+        addProduct={handlerAddProduct}
+      />
+      <ListProduct products={products} onModal={handlerModal} />
+      <ModalDelete
+        product={productSelected}
+        visible={modalVisible}
+        onModal={handlerModal}
+        onDelete={handlerDeleteProduct}
+      />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "start",
+    alignItems: "center",
+    marginTop: 30,
   },
 });
+
+export default App;
