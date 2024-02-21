@@ -36,9 +36,11 @@ const styles = StyleSheet.create({
   text1: {
     fontSize: 19,
     color: colors.lightGray,
+    fontFamily: "Josefin",
   },
   text2: {
     fontSize: 17,
     color: colors.lightGray,
+    fontFamily: "Josefin",
   },
 });

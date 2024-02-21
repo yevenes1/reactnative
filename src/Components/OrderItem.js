@@ -42,8 +42,10 @@ const styles = StyleSheet.create({
   text1: {
     fontSize: 19,
     fontWeight: "bold",
+    fontFamily: "Josefin",
   },
   text2: {
     fontSize: 17,
+    fontFamily: "Josefin",
   },
 });
