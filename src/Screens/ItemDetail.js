@@ -1,21 +1,23 @@
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
-import React, { useEffect, useState } from "react";
 import { colors } from "../Global/colors";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addItem } from "../features/cart/cartSlice";
+import { useGetProductQuery } from "../app/services/shopServices";
+import { useEffect } from "react";
 
 const ItemDetail = ({ route }) => {
+  const { id } = route.params;
   const dispatch = useDispatch();
-  const product = useSelector((state) => state.shop.value.productSelected);
-  const images = product.images ? product.images : [];
+  const { data: product, isLoading } = useGetProductQuery(id);
+  if (isLoading) return null;
 
   return (
     <View style={styles.container}>
       <View style={styles.content}>
         <Image
           style={styles.image}
-          source={{ uri: images[2] }}
+          source={{ uri: product.thumbnail }}
           resizeMode="cover"
         />
         <View style={styles.containerText}>

@@ -1,9 +1,10 @@
 import { FlatList, StyleSheet } from "react-native";
 import CategoryItem from "./CategoryItem";
 import { useGetCategoriesQuery } from "../app/services/shopServices";
+import { useEffect } from "react";
 
 const Categories = ({ navigation, route }) => {
-  const { data: categories } = useGetCategoriesQuery();
+  const { data: categories, isError, error } = useGetCategoriesQuery();
 
   return (
     <FlatList
