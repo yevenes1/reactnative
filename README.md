@@ -1,6 +1,6 @@
 # Bienvenidos a MangaStore!
 
-Hola, mi nombre es Nicolas Yévenes. Estudiante en CoderHouse en la carrera de Desarrollo de Aplicaciones, este es uno de mis proyectos en lo que es Desarrollo de Aplicaciones. Repositorio Hecho sin fines lucrativos jeje.
+Hola, mi nombre es Nicolas Yévenes. Estudiante en CoderHouse en la carrera de Desarrollo de Aplicaciones, este es uno de mis proyectos en lo que es Desarrollo de Aplicaciones. Repositorio Hecho sin fines lucrativos.
 
 
 # Visualizar Repositorio 
