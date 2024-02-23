@@ -28,15 +28,15 @@ export default Header;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.green1,
+    backgroundColor: colors.pink,
     width: "100%",
     height: 80,
     justifyContent: "center",
     alignItems: "center",
   },
   text: {
-    fontSize: 20,
-    fontFamily: "Josefin",
+    fontSize: 25,
+    fontFamily: "Lobster",
   },
   logoutIcon: {
     position: "absolute",

@@ -1,5 +1,6 @@
 import { StyleSheet, StatusBar } from "react-native";
 import { colors } from "./src/Global/colors";
+import { useFonts } from "expo-font";
 import { store } from "./src/app/store";
 import { Provider } from "react-redux";
 import MainNavigator from "./src/navigation/MainNavigator";
@@ -10,9 +11,16 @@ init()
   .catch((err) => console.log(err));
 
 const App = () => {
+  const [fontLoaded] = useFonts({
+    Josefin: require("./assets/Fonts/JosefinSans-Bold.ttf"),
+    Lobster: require("./assets/Fonts/Lobster-Regular.ttf"),
+  });
+
+  if (!fontLoaded) return null;
+
   return (
     <>
-      <StatusBar backgroundColor={colors.green1} />
+      <StatusBar backgroundColor="#fff" />
       <Provider store={store}>
         <MainNavigator />
       </Provider>

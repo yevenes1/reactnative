@@ -18,7 +18,7 @@ export default OrderItem;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.lightGray,
+    backgroundColor: colors.pink,
     margin: 10,
     padding: 10,
     height: 100,

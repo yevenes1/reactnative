@@ -3,7 +3,6 @@ import OrderItem from "../Components/OrderItem";
 import { useGetOrdersQuery } from "../app/services/shopServices";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import LoadingSpinner from "../Components/LoadingSpinner";
 
 const Orders = () => {
   const localId = useSelector((state) => state.auth.value.localId);
@@ -14,30 +13,43 @@ const Orders = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (isSuccess && data.length === 0) setInfo(false);
+    if (isSuccess && data.length === 0) {
+      setInfo(false);
+    }
     if (isSuccess && data) setLoading(false);
-    if (isError && error) setErrorMessage(error.error);
-  }, [data, isSuccess, isError, error]);
+    if (isError && error)
+      setErrorMessage(error.message || "Error al obtener órdenes");
+  }, [isSuccess, isError, error, data]);
 
-  if (!info)
+  if (isLoading)
     return (
       <View>
-        <Text>no hay ordenes</Text>
+        <Text style={styles.txt}>Cargando...</Text>
       </View>
     );
-  if (errorMessage)
+
+  if (isError) {
     return (
       <View>
-        <Text>Error al cargar</Text>
+        <Text>{errorMessage}</Text>
       </View>
     );
-  if (loading) return <LoadingSpinner />;
+  }
+
+  if (!info) {
+    return (
+      <View>
+        <Text style={styles.txt}>No tienes órdenes</Text>
+      </View>
+    );
+  }
 
   return (
     <FlatList
       data={data}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => <OrderItem order={item} />}
+      style={styles.FlatList}
     />
   );
 };

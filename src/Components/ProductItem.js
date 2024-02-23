@@ -36,18 +36,15 @@ export default ProductItem;
 
 const styles = StyleSheet.create({
   container: {
-    width: "80%",
+    backgroundColor: colors.pink,
+    margin: 10,
+    padding: 10,
     height: 100,
-    backgroundColor: colors.green1,
-    marginHorizontal: "10%",
-    marginVertical: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 15,
-    borderRadius: 5,
     flexDirection: "row",
-    alignItems: "center",
     justifyContent: "space-between",
-    gap: 30,
+    alignItems: "center",
+    borderRadius: 10,
+    borderWidth: 2,
   },
   text: {
     width: "60%",

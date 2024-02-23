@@ -45,7 +45,7 @@ export default Search;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.green1,
+    backgroundColor: colors.pink,
     width: "100%",
   },
   containerInput: {
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   input: {
-    backgroundColor: colors.green2,
+    backgroundColor: colors.pink,
     width: "75%",
     borderWidth: 2,
     borderRadius: 5,

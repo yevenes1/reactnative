@@ -57,7 +57,7 @@ const Signup = ({ navigation }) => {
   return (
     <View style={styles.main}>
       <View style={styles.container}>
-        <Text style={styles.title}>Sign up</Text>
+        <Text style={styles.title}>Registrate</Text>
         <InputForm
           label="Email"
           value={email}
@@ -80,9 +80,9 @@ const Signup = ({ navigation }) => {
           error={confirmPasswordError}
         />
         <SubmitButton title="Send" onPress={onSubmit} />
-        <Text style={styles.sub}>Alredy have an account?</Text>
+        <Text style={styles.sub}>Ya tienes una cuenta?</Text>
         <Pressable onPress={() => navigation.navigate("Login")}>
-          <Text style={styles.subLink}>Login</Text>
+          <Text style={styles.subLink}>Entrar</Text>
         </Pressable>
       </View>
     </View>
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   },
   container: {
     width: "90%",
-    backgroundColor: colors.green1,
+    backgroundColor: colors.pink,
     gap: 15,
     borderRadius: 10,
     justifyContent: "center",
