@@ -23,10 +23,7 @@ const MyProfile = ({ navigation }) => {
         title={"Agregar foto"}
         onPress={() => navigation.navigate("ImageSelector")}
       />
-      <AddButton
-        title={location ? "Cambiar Ubicacion" : "Agregar Ubicacion"}
-        onPress={() => navigation.navigate("LocationSelector")}
-      />
+     
     </View>
   );
 };
